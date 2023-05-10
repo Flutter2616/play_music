@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:play_music/provider/music_provider.dart';
 import 'package:play_music/view/home_screen.dart';
+import 'package:play_music/view/like_screen.dart';
 import 'package:play_music/view/search_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -49,6 +50,7 @@ class _DashscreenState extends State<Dashscreen> {
         children: [
           Homescreen(),
           Searchscreen(),
+          Likescreen(),
         ],
       ),
     );

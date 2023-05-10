@@ -1,6 +1,7 @@
 class MusicModel
 {
-  String? name,singer,music,img;
+  String? name,singer,img;
+  bool? like;
 
-  MusicModel({this.name, this.singer, this.music,this.img});
+  MusicModel({this.name, this.singer,this.img,this.like});
 }

@@ -4,6 +4,8 @@ import 'package:play_music/provider/music_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import 'music_play_screen.dart';
+
 class Homescreen extends StatefulWidget {
   const Homescreen({Key? key}) : super(key: key);
 
@@ -12,16 +14,6 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  Musicprovider? mt;
-  Musicprovider? mf;
-
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   Provider.of<Musicprovider>(context, listen: false).intimusic();
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
     mt = Provider.of<Musicprovider>(context, listen: true);
@@ -70,7 +62,7 @@ class _HomescreenState extends State<Homescreen> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                         mf!.musicindexpass(index);
+                        mt!.musicindex=index;
                           Navigator.pushNamed(context, "playscreen",
                               arguments: index);
                         },
@@ -85,11 +77,10 @@ class _HomescreenState extends State<Homescreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
-                                height: 100.h,
+                                height: 100.h,margin: EdgeInsets.symmetric(vertical: 5),
                                 width: 20.w,
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5.sp)),
+                                  shape: BoxShape.circle,
                                   color: Colors.white,
                                   image: DecorationImage(
                                       image: NetworkImage(

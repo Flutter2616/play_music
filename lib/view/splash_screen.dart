@@ -13,6 +13,11 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen> {
   @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   Provider.of<Musicprovider>(context,listen: false).intimusic();
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 6),() {

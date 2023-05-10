@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:play_music/provider/music_provider.dart';
 import 'package:play_music/view/home_screen.dart';
+import 'package:play_music/view/like_screen.dart';
 import 'package:play_music/view/music_play_screen.dart';
 import 'package:play_music/view/search_screen.dart';
 import 'package:play_music/view/splash_screen.dart';
@@ -28,6 +29,7 @@ void main() {
               'search':(context) => Searchscreen(),
               'playscreen': (context) => Playscreen(),
               'dash': (context) => Dashscreen(),
+              'like':(context) => Likescreen(),
             },
           ),
         );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:play_music/provider/music_provider.dart';
+import 'package:play_music/utils/share_preference_class.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -12,16 +13,24 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+  bool? status;
   @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   Provider.of<Musicprovider>(context,listen: false).intimusic();
-  //   super.initState();
-  // }
+  void initState() {
+    super.initState();
+    getintrostatus();
+  }
+
+  Future<void> getintrostatus()
+  async {
+    Sharepre share=Sharepre();
+    status=await share.for_introscreen_status();
+  }
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 6),() {
-      Navigator.pushReplacementNamed(context, 'dash');
+    Future.delayed(Duration(seconds: 4),() {
+      status == true?
+             Navigator.pushReplacementNamed(context, 'dash')
+          :Navigator.pushReplacementNamed(context, 'intro');
     },);
     return SafeArea(
       child: Scaffold(
@@ -42,7 +51,7 @@ class _SplashscreenState extends State<Splashscreen> {
                       height: 20.h, width: 20.h, fit: BoxFit.cover),
                   SizedBox(height: 5),
                   Text(
-                    "Spotify",
+                    "Music Beats",
                     style: GoogleFonts.indieFlower(
                         fontSize: 50,
                         fontWeight: FontWeight.bold,

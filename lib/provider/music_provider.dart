@@ -103,7 +103,7 @@ class Musicprovider extends ChangeNotifier {
   }
 
   presong() {
-    assetsAudioPlayer.previous();
+    assetsAudioPlayer.previous(keepLoopMode: false);
     playmusic=true;
 if(musicindex>0)
   {

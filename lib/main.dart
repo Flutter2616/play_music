@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:play_music/provider/music_provider.dart';
 import 'package:play_music/view/home_screen.dart';
+import 'package:play_music/view/intro_screen.dart';
 import 'package:play_music/view/like_screen.dart';
+import 'package:play_music/view/login_screen.dart';
 import 'package:play_music/view/music_play_screen.dart';
 import 'package:play_music/view/search_screen.dart';
 import 'package:play_music/view/splash_screen.dart';
@@ -21,10 +23,12 @@ void main() {
             ChangeNotifierProvider(create: (context) => Musicprovider()),
           ],
           child: MaterialApp(
-            initialRoute: '/',
+            initialRoute: 'login',
             debugShowCheckedModeBanner: false,
             routes: {
               '/': (context) => Splashscreen(),
+              'intro': (context) => Introscreen(),
+              'login': (context) => Loginscreen(),
               'home': (context) => Homescreen(),
               'search':(context) => Searchscreen(),
               'playscreen': (context) => Playscreen(),

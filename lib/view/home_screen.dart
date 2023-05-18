@@ -1,6 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:play_music/provider/music_provider.dart';
+import 'package:play_music/utils/share_preference_class.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -42,8 +43,24 @@ class _HomescreenState extends State<Homescreen> {
                   Icon(Icons.av_timer_rounded,
                       size: 18.sp, color: Colors.white),
                   SizedBox(width: 15),
-                  Icon(Icons.settings_outlined,
-                      size: 18.sp, color: Colors.white),
+                  PopupMenuButton(
+                    icon: Icon(Icons.settings_outlined,color: Colors.white),color: Colors.black,
+                    // Callback that sets the selected popup menu item.
+                    itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                       PopupMenuItem(
+                        onTap: () {
+                          Sharepre share=Sharepre();
+                          share.logout(context);
+
+                        },
+                        child: Text('Logout',style: TextStyle(color: Colors.white)),
+                      ),
+                       PopupMenuItem(
+                        child: Text('Theme',style: TextStyle(color: Colors.white)),
+                      ),
+
+                    ],
+                  ),
                 ],
               ),
               SizedBox(height: 20),
